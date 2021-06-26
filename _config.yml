@@ -8,6 +8,7 @@ url: ""
 # THEME SETTINGS
 navigation: # Navigation links
   - {name: 'Fatture', link: '/fatture'}
+  - {name: 'QRCode', link: '/qrcode'}
 email: info@paroparo.it
 locale: it_IT
 colors:

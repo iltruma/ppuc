@@ -1,0 +1,89 @@
+---
+layout: default
+---
+
+<script type="text/javascript">
+    
+    function create_qrcode() { 
+        $('#label-project').hide();
+        $('#qrcode-project').html("");
+
+        var id = $('#id-project').val();
+        var url = $('#url-project').val();
+        qrCode = new QRCodeStyling({
+            width: 75,
+            height: 75,
+            type: "svg",
+            data: url,
+            dotsOptions: {
+                color: "{{site.colors[0].primary-dark}}",
+                type: "rounded"
+            },
+            backgroundOptions: {
+                color: "#fff",
+            }
+        });
+
+        qrCode.append(document.getElementById("qrcode-project"));
+        $('#title-project').html("PP-"+id);
+        $('#label-project').show();
+    }
+
+    function print_qrcode() {
+        $('#label-project').printThis({
+            importCSS: true,
+            loadCSS: true,
+            canvas: true
+        });
+    }
+</script>
+
+
+<section class="pt-6">
+    <div class="container">
+      <div class="row justify-content-md-center">
+        <div class="col-lg-12">
+            <h2>QR-Code Project Generator</h2>
+            <div class="mt-4">
+                <div class="form-row">
+                    <div class="col">
+                        <input type="text" class="form-control" id="id-project" aria-describedby="id-project" placeholder="ID Progetto" value="0001">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" id="url-project" aria-describedby="url-project" placeholder="Url Progetto" value="www.paroparo.it">
+                    </div>
+                    <div class="col">
+                        <button class="mb-2 btn btn-primary" onclick="create_qrcode()">
+                            <span class="h6 m-0 mdi mdi-cog text-white"></span>
+                            Genera
+                        </button>
+                        <button class="mb-2 btn btn-primary-2" onclick="print_qrcode()">
+                            <span class="h6 m-0 mdi mdi-printer text-white"></span>
+                            Stampa
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+      <div class="row justify-content-md-center mt-4" id="label-project" style="display: none;">
+        <div class="col-lg-4">
+            <div class="card card-sm card-body flex-row align-items-center p-2">
+            <div id="qrcode-project"></div>
+            <div class="ml-3">
+                <span>Paroparo Project</span>
+                <h5 class="mb-0" id="title-project"></h5>
+            </div>
+            <div id="img-project">
+                <img>
+            </div>
+            </div>
+        </div>
+       </div>
+    </div>
+
+</section>
+<script defer type="text/javascript" src="{{ '/assets/js/qr-code-styling.js' | relative_url }}"></script>
+<script defer type="text/javascript" src="{{ '/assets/js/printThis.js' | relative_url }}"></script>
+
+
