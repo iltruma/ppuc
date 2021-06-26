@@ -1,0 +1,55 @@
+# SITE CONFIGURATION
+title: PPUC # your site title
+author: iltruma # You :P
+description: "PPUC - Paroparo Utility Center"
+baseurl: "" # the subpath of your site, e.g. /blog
+url: ""
+
+# THEME SETTINGS
+navigation: # Navigation links
+  - {name: 'Fatture', link: '/fatture'}
+email: info@paroparo.it
+locale: it_IT
+colors:
+  - primary: "#186e64"
+  - primary-3: "#2DE0CB"
+  - primary-dark: "#021C19"
+  - primary-2: "#FF6933"
+  - primary-4: "#6600FF"
+  - primary-2-dark: "#242331"
+
+github: "https://github.com/iltruma/ppuc"
+
+
+# BUILD SETTINGS
+markdown: kramdown
+highlighter: rouge
+exclude:
+  - README.md
+  - node_modules
+  - script
+  - package.json
+  - package-lock.json
+  - Gemfile
+  - Gemfile.lock
+  - npm-debug.log
+  - gulpfile.js
+keep_files:
+  - assets
+
+permalink: /:title/
+
+compress_html:
+  clippings: all
+
+#PAGINATION
+pagination:
+  enabled: true
+  per_page: 10
+  trail: 
+    before: 2 # The number of links before the current page
+    after: 2  # The number of links after the current page
+    
+plugins:
+  - jekyll-spaceship
+  - jekyll-watch
